@@ -1,0 +1,51 @@
+import random
+credits = 100
+menu= True
+num1=0
+num2=0
+num3=0
+
+while menu:
+    print ("==============================")
+    print("WELCOME TO YOU WILL LOSE")
+    print ("==============================")
+    print("WIN BIG OR GO HOME WITH NOTHING")
+    print ("==============================")
+    print ("GET 3 OF THE SAME NUMBER TO WIN DOUBLE WHAT YOU'VE PLAYED")
+    print ("==============================")
+    print ("YOU CURRENTLY HAVE", credits," CREDITS, HOW MUCH WOULD YOU LIKE TO PLAY?\n")
+    amountplay= int (input("ENTER AMOUNT HERE:"))
+    
+    if amountplay > credits:
+        print ("YOU SEEM TO BE BROKE TO DO THAT, GOOD BYE!")
+        menu
+    elif amountplay <= credits:
+        credits = credits - amountplay
+        num1=random.sample(range(1, 7), 1)
+        num2=random.sample(range(1, 7), 1)
+        num3=random.sample(range(1, 7), 1)
+        print("===============")
+        print (num1,num2,num3)
+        print("===============")
+        menu
+    
+        if ((num1 == num2) and (num2 == num3) and (num3 == num1)):
+         print (num1,num2,num3)
+         amountplay = amountplay*2
+         credits = credits + amountplay  
+         print ("you have won")
+        if credits== 0:
+            print("No more credits")
+        else:
+         print ("you lost. Better luck next time!")
+   
+    playagain=str(input("Do you want to play again? y/n:"))
+    if playagain=='y':
+             menu
+    
+    if playagain == "n":
+        print("THANKS FOR PLAYING. SEE YOU NEXT TIME!!")
+        print ("YOU HAVE CASHED OUT " , credits , "CREDITS")
+        print("COME LOSE AGAIN SOON!!!!! HAHAHAHAHA")
+        exit(0)
+        
